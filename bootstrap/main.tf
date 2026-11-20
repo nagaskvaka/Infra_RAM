@@ -33,6 +33,16 @@ resource "azurerm_storage_account" "state" {
       days = 30
     }
   }
+
+  queue_properties {
+    logging {
+      delete                = true
+      read                  = true
+      write                 = true
+      version               = "1.0"
+      retention_policy_days = 30
+    }
+  }
 }
 
 resource "azurerm_storage_container" "state" {
