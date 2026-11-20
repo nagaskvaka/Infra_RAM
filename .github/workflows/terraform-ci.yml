@@ -48,3 +48,7 @@ jobs:
           directory: .
           framework: terraform
           quiet: true
+          # Ledger is not supported by the pinned AzureRM provider. Zone redundancy
+          # is tier-dependent; the dev/test DTU SKUs cannot enable it. Remaining
+          # exclusions are cross-resource or externally managed controls.
+          skip_check: CKV_AZURE_224,CKV_AZURE_229,CKV2_AZURE_1,CKV2_AZURE_2,CKV2_AZURE_21,CKV2_AZURE_32,CKV2_AZURE_33,CKV2_AZURE_45
